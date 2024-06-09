@@ -1,12 +1,13 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
     name: "SVGKit",
     platforms: [
-        .macOS(.v10_10),
+        .macOS(.v10_13),
         .iOS(.v13),
-        .tvOS(.v13)
+        .tvOS(.v13),
+		.visionOS(.v1)
     ],
     products: [
         .library(

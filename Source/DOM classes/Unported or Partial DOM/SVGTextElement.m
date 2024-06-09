@@ -253,7 +253,7 @@
 #if SVGKIT_MAC
     label.contentsScale = [[NSScreen mainScreen] backingScaleFactor];
 #else
-    label.contentsScale = [[UIScreen mainScreen] scale];
+    label.contentsScale = [[UITraitCollection currentTraitCollection] displayScale];
 #endif
     
     return [self newCALayerForTextLayer:label transformAbsolute:textTransformAbsolute];

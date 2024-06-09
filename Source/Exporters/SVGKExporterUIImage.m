@@ -23,7 +23,7 @@
         if (@available(iOS 10.0, *)) {
             UIGraphicsImageRendererFormat * rendererFormat = [[UIGraphicsImageRendererFormat alloc] init];
             rendererFormat.opaque = NO;
-            rendererFormat.scale = [UIScreen mainScreen].scale;
+            rendererFormat.scale = [[UITraitCollection currentTraitCollection] displayScale];
             
             UIGraphicsImageRenderer * render = [[UIGraphicsImageRenderer alloc] initWithSize:image.size format:rendererFormat];
             
@@ -35,7 +35,7 @@
             
             return result;
         } else {
-            UIGraphicsBeginImageContextWithOptions( image.size, FALSE, [UIScreen mainScreen].scale );
+            UIGraphicsBeginImageContextWithOptions( image.size, FALSE, [[UITraitCollection currentTraitCollection] displayScale] );
             CGContextRef context = UIGraphicsGetCurrentContext();
             
             [image renderToContext:context antiAliased:shouldAntialias curveFlatnessFactor:multiplyFlatness interpolationQuality:interpolationQuality flipYaxis:FALSE];
